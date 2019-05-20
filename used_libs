@@ -1,0 +1,16 @@
+libc.so.6
+libcodec2.so.0.8.1
+libdl.so.2
+libgcc_s.so.1
+libhamlib.so.2
+libm.so.6
+libportaudio.so.2
+libpthread.so.0
+libsamplerate.so.0
+libsndfile.so.1
+libspeexdsp.so.1
+libstdc++.so.6
+libwx_baseu-3.1.so.2
+libwx_baseu_net-3.1.so.2
+libwx_gtk3u_aui-3.1.so.2
+libwx_gtk3u_core-3.1.so.2
