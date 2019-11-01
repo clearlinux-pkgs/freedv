@@ -4,7 +4,7 @@
 #
 Name     : freedv
 Version  : 1.3.1
-Release  : 1
+Release  : 2
 URL      : https://hobbes1069.fedorapeople.org/freetel/freedv/freedv-1.3.1.tar.xz
 Source0  : https://hobbes1069.fedorapeople.org/freetel/freedv/freedv-1.3.1.tar.xz
 Summary  : No detailed summary available
@@ -60,28 +60,32 @@ license components for the freedv package.
 
 %prep
 %setup -q -n freedv-1.3.1
+cd %{_builddir}/freedv-1.3.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1558395956
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1572645329
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
-export LDFLAGS="${LDFLAGS} -fno-lto"
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake .. -DUSE_STATIC_CODEC2=FALSE \
 -DUSE_STATIC_DEPS=FALSE
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1558395956
+export SOURCE_DATE_EPOCH=1572645329
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
-cp COPYING %{buildroot}/usr/share/package-licenses/freedv/COPYING
-cp contrib/LICENSE %{buildroot}/usr/share/package-licenses/freedv/contrib_LICENSE
+cp %{_builddir}/freedv-1.3.1/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b
+cp %{_builddir}/freedv-1.3.1/contrib/LICENSE %{buildroot}/usr/share/package-licenses/freedv/e9101bd4e253c0f7da54e8f581cf72322df10162
 pushd clr-build
 %make_install
 popd
@@ -103,5 +107,5 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/freedv/COPYING
-/usr/share/package-licenses/freedv/contrib_LICENSE
+/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b
+/usr/share/package-licenses/freedv/e9101bd4e253c0f7da54e8f581cf72322df10162
