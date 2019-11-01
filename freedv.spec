@@ -4,7 +4,7 @@
 #
 Name     : freedv
 Version  : 1.3.1
-Release  : 2
+Release  : 3
 URL      : https://hobbes1069.fedorapeople.org/freetel/freedv/freedv-1.3.1.tar.xz
 Source0  : https://hobbes1069.fedorapeople.org/freetel/freedv/freedv-1.3.1.tar.xz
 Summary  : No detailed summary available
@@ -67,7 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1572645329
+export SOURCE_DATE_EPOCH=1572646166
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -81,7 +81,7 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1572645329
+export SOURCE_DATE_EPOCH=1572646166
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
 cp %{_builddir}/freedv-1.3.1/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b
