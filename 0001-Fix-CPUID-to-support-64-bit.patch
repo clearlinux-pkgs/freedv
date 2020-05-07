@@ -1,0 +1,81 @@
+From 7c26d552bdd59e72541dcb764b3c9271a40b1d0d Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Wed, 6 May 2020 14:25:34 -0700
+Subject: [PATCH] Fix CPUID to support 64-bit
+
+---
+ src/fdmdv2_main.cpp | 46 ++++++++++-----------------------------------
+ 1 file changed, 10 insertions(+), 36 deletions(-)
+
+diff --git a/src/fdmdv2_main.cpp b/src/fdmdv2_main.cpp
+index f6e0360..175e020 100644
+--- a/src/fdmdv2_main.cpp
++++ b/src/fdmdv2_main.cpp
+@@ -21,6 +21,7 @@
+ //==========================================================================
+ 
+ #include "fdmdv2_main.h"
++#include <cpuid.h>
+ 
+ #define wxUSE_FILEDLG   1
+ #define wxUSE_LIBPNG    1
+@@ -4479,47 +4480,20 @@ void MainFrame::CloseSerialPort(void)
+ // Tests the underlying platform for AVX support.  2020 needs AVX support to run
+ // in real-time, and old processors do not offer AVX support
+ //
+-void __cpuid(int* cpuinfo, int info)
+-{
+-    __asm__ __volatile__(
+-        "xchg %%ebx, %%edi;"
+-        "cpuid;"
+-        "xchg %%ebx, %%edi;"
+-        :"=a" (cpuinfo[0]), "=D" (cpuinfo[1]), "=c" (cpuinfo[2]), "=d" (cpuinfo[3])
+-        :"0" (info)
+-    );
+-}
+-
+-// These methods are defined for Windows but must be created otherwise
+-unsigned long long __xgetbv(unsigned int index)
+-{
+-    unsigned int eax, edx;
+-    __asm__ __volatile__(
+-        "xgetbv;"
+-        : "=a" (eax), "=d"(edx)
+-        : "c" (index)
+-    );
+-    return ((unsigned long long)edx << 32) | eax;
+-}
+-
+ void MainFrame::checkAvxSupport(void)
+ {
+ 
+-    int cpuinfo[4];
+-    __cpuid(cpuinfo, 1);
+-
+-    bool avxSupported = false;
++    isAvxPresent = false;
++    uint32_t eax, ebx, ecx, edx;
++    eax = ebx = ecx = edx = 0;
++    __cpuid(1, eax, ebx, ecx, edx);
+ 
+-    avxSupported = cpuinfo[2] & (1 << 28) || false;
+-    bool osxsaveSupported = cpuinfo[2] & (1 << 27) || false;
+-    if (osxsaveSupported && avxSupported)
+-    {
+-        // _XCR_XFEATURE_ENABLED_MASK = 0
+-        unsigned long long xcrFeatureMask = __xgetbv(0);
+-        avxSupported = (xcrFeatureMask & 0x6) == 0x6;
++    if (ecx & (1<<26) && ecx & (1<<27)) {
++        // CPU supports XSAVE and AVX
++        uint64_t xcr0;
++        asm("xgetbv" : "=A" (xcr0) : "c" (0));
++        isAvxPresent = (xcr0 & 6) == 6;    // AVX state saving enabled?
+     }
+-
+-    isAvxPresent = avxSupported;
+ }
+ 
+ #ifdef __UDP_SUPPORT__
+-- 
+2.26.2
+
