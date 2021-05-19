@@ -1,0 +1,29 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Patrick McCarty <patrick.mccarty@intel.com>
+Date: Wed, 19 May 2021 10:33:03 -0700
+Subject: [PATCH] Backport hamlib compat fix
+
+Upstream-Status: Backport
+Reference: https://github.com/drowe67/freedv-gui/commit/3179bd7ab3
+Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+---
+ src/hamlib.cpp | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/hamlib.cpp b/src/hamlib.cpp
+index e383c8f..8a43cef 100644
+--- a/src/hamlib.cpp
++++ b/src/hamlib.cpp
+@@ -110,7 +110,12 @@ bool Hamlib::connect(unsigned int rig_index, const char *serial_port, const int
+ 
+     /* TODO we may also need civaddr for Icom */
+ 
++#if defined(HAMLIB_FILPATHLEN)
++    strncpy(m_rig->state.rigport.pathname, serial_port, HAMLIB_FILPATHLEN - 1);
++#else
+     strncpy(m_rig->state.rigport.pathname, serial_port, FILPATHLEN - 1);
++#endif // HAMLIB_FILPATHLEN
++
+     if (serial_rate) {
+         fprintf(stderr, "hamlib: setting serial rate: %d\n", serial_rate);
+         m_rig->state.rigport.parm.serial.rate = serial_rate;

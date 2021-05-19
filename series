@@ -1,1 +1,2 @@
 0001-Fix-CPUID-to-support-64-bit.patch
+0002-Backport-hamlib-compat-fix.patch

@@ -4,7 +4,7 @@
 #
 Name     : freedv
 Version  : 1.4
-Release  : 11
+Release  : 12
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.4/freedv-gui-1.4.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.4/freedv-gui-1.4.tar.gz
 Summary  : No detailed summary available
@@ -27,6 +27,7 @@ BuildRequires : speexdsp-dev
 BuildRequires : wxWidgets
 BuildRequires : wxWidgets-dev
 Patch1: 0001-Fix-CPUID-to-support-64-bit.patch
+Patch2: 0002-Backport-hamlib-compat-fix.patch
 
 %description
 Building under OSX is similar to building under linux, but there are some additional steps that need to be performed to produce a working app-bundle.
@@ -61,13 +62,14 @@ license components for the freedv package.
 %setup -q -n freedv-gui-1.4
 cd %{_builddir}/freedv-gui-1.4
 %patch1 -p1
+%patch2 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1612217039
+export SOURCE_DATE_EPOCH=1621445755
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -81,7 +83,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1612217039
+export SOURCE_DATE_EPOCH=1621445755
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
 cp %{_builddir}/freedv-gui-1.4/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b

@@ -1,4 +1,4 @@
-From 2245aacbf27977e9a176415fb2581b4bfb3ece6d Mon Sep 17 00:00:00 2001
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: "Brett T. Warden" <brett.t.warden@intel.com>
 Date: Wed, 6 May 2020 14:25:34 -0700
 Subject: [PATCH] Fix CPUID to support 64-bit
@@ -76,6 +76,3 @@ index f6e0360..72cb85f 100644
  }
  
  #ifdef __UDP_SUPPORT__
--- 
-2.26.2
-
