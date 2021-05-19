@@ -4,7 +4,7 @@
 #
 Name     : freedv
 Version  : 1.4
-Release  : 10
+Release  : 11
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.4/freedv-gui-1.4.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.4/freedv-gui-1.4.tar.gz
 Summary  : No detailed summary available
