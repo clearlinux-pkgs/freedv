@@ -1,0 +1,32 @@
+From 30b10db230326ddf44cb78fce8f0a116ab153c62 Mon Sep 17 00:00:00 2001
+From: "Brett T. Warden" <brett.t.warden@intel.com>
+Date: Tue, 14 Sep 2021 16:42:42 -0700
+Subject: [PATCH] Fix check for LPCNet
+
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b432ba6c9ca5..eacd8e2eb3aa 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -260,7 +260,6 @@ else(CODEC2_BUILD_DIR)
+         get_target_property(CODEC2_INCLUDE_DIRS codec2 INTERFACE_INCLUDE_DIRECTORIES)
+         message(STATUS "  codec2 library: ${CODEC2_LIBRARY}")
+         message(STATUS "  codec2 headers: ${CODEC2_INCLUDE_DIRS}")
+-        find_package(lpcnetfreedv REQUIRED)
+     else()
+         # Try to find manually
+         find_path(CODEC2_INCLUDE_DIRS codec2.h
+@@ -280,6 +279,7 @@ It's easiest to use the cmake option: USE_INTERNAL_CODEC2 or use build trees for
+         )
+         endif()
+     endif()
++    find_package(lpcnetfreedv REQUIRED)
+ endif(CODEC2_BUILD_DIR)
+ 
+ 
+-- 
+2.33.0
+

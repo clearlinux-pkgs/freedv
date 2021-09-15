@@ -1,2 +1,1 @@
-0001-Fix-CPUID-to-support-64-bit.patch
-0002-Backport-hamlib-compat-fix.patch
+0001-Fix-check-for-LPCNet.patch
