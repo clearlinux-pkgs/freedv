@@ -4,7 +4,7 @@
 #
 Name     : freedv
 Version  : 1.7.0
-Release  : 18
+Release  : 19
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.7.0/freedv-gui-1.7.0.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.7.0/freedv-gui-1.7.0.tar.gz
 Summary  : No detailed summary available
