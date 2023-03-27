@@ -5,7 +5,7 @@
 #
 Name     : freedv
 Version  : 1.8.9.20220326
-Release  : 36
+Release  : 37
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.8.9-20220326/freedv-gui-1.8.9.20220326.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.8.9-20220326/freedv-gui-1.8.9.20220326.tar.gz
 Summary  : No detailed summary available
