@@ -5,7 +5,7 @@
 #
 Name     : freedv
 Version  : 1.8.9.20220326
-Release  : 38
+Release  : 39
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.8.9-20220326/freedv-gui-1.8.9.20220326.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.8.9-20220326/freedv-gui-1.8.9.20220326.tar.gz
 Summary  : No detailed summary available
@@ -14,7 +14,7 @@ License  : CC-BY-4.0 LGPL-2.1
 Requires: freedv-bin = %{version}-%{release}
 Requires: freedv-data = %{version}-%{release}
 Requires: freedv-license = %{version}-%{release}
-Requires: wxwidgets
+Requires: wxWidgets
 BuildRequires : LPCNet-dev
 BuildRequires : buildreq-cmake
 BuildRequires : codec2-dev
@@ -42,6 +42,7 @@ Summary: bin components for the freedv package.
 Group: Binaries
 Requires: freedv-data = %{version}-%{release}
 Requires: freedv-license = %{version}-%{release}
+Requires: wxWidgets-lib
 
 %description bin
 bin components for the freedv package.
@@ -73,7 +74,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679954003
+export SOURCE_DATE_EPOCH=1679954877
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,7 +95,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 cd clr-build; make test || :
 
 %install
-export SOURCE_DATE_EPOCH=1679954003
+export SOURCE_DATE_EPOCH=1679954877
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
 cp %{_builddir}/freedv-gui-1.8.9-20220326/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b || :
