@@ -1,7 +1,7 @@
 # This file contains additional build requirements that did not get
 # picked up automatically. One name per line, no whitespace.
-LPCNet-dev
-codec2-dev
+#LPCNet-dev
+#codec2-dev
 hamlib-dev
 libsamplerate-dev
 libsndfile-dev
