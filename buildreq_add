@@ -5,6 +5,7 @@ codec2-dev
 hamlib-dev
 libsamplerate-dev
 libsndfile-dev
+socket.io-client-cpp-dev
 speexdsp-dev
 wxWidgets
 wxWidgets-dev

@@ -6,11 +6,11 @@ liblpcnetfreedv.so.0.2
 libm.so.6
 libportaudio.so.2
 libsamplerate.so.0
+libsioclient.so.1
 libsndfile.so.1
 libspeexdsp.so.1
 libstdc++.so.6
 libwx_baseu-3.2.so.0
-libwx_baseu_net-3.2.so.0
 libwx_gtk3u_aui-3.2.so.0
 libwx_gtk3u_core-3.2.so.0
 libwx_gtk3u_propgrid-3.2.so.0
