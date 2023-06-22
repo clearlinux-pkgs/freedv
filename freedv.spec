@@ -5,7 +5,7 @@
 #
 Name     : freedv
 Version  : 1.8.11
-Release  : 47
+Release  : 48
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.8.11/freedv-gui-1.8.11.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.8.11/freedv-gui-1.8.11.tar.gz
 Summary  : No detailed summary available
