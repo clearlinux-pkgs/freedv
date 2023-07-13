@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : freedv
-Version  : 1.8.11
-Release  : 48
-URL      : https://github.com/drowe67/freedv-gui/archive/v1.8.11/freedv-gui-1.8.11.tar.gz
-Source0  : https://github.com/drowe67/freedv-gui/archive/v1.8.11/freedv-gui-1.8.11.tar.gz
+Version  : 1.8.12
+Release  : 49
+URL      : https://github.com/drowe67/freedv-gui/archive/v1.8.12/freedv-gui-1.8.12.tar.gz
+Source0  : https://github.com/drowe67/freedv-gui/archive/v1.8.12/freedv-gui-1.8.12.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC-BY-4.0 LGPL-2.1
@@ -66,8 +66,8 @@ license components for the freedv package.
 
 
 %prep
-%setup -q -n freedv-gui-1.8.11
-cd %{_builddir}/freedv-gui-1.8.11
+%setup -q -n freedv-gui-1.8.12
+cd %{_builddir}/freedv-gui-1.8.12
 %patch -P 1 -p1
 
 %build
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686758906
+export SOURCE_DATE_EPOCH=1689258551
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,7 +113,7 @@ cd ../clr-build-avx2;
 make test || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1686758906
+export SOURCE_DATE_EPOCH=1689258551
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
 cp %{_builddir}/freedv-gui-%{version}/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b || :
