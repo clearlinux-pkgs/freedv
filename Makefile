@@ -1,5 +1,5 @@
 PKG_NAME := freedv
-URL = https://github.com/drowe67/freedv-gui/archive/v1.8.12/freedv-gui-1.8.12.tar.gz
+URL = https://github.com/drowe67/freedv-gui/archive/v1.9.0/freedv-gui-1.9.0.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
