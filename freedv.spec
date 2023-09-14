@@ -4,10 +4,10 @@
 # Using build pattern: cmake
 #
 Name     : freedv
-Version  : 1.9.1
-Release  : 52
-URL      : https://github.com/drowe67/freedv-gui/archive/v1.9.1/freedv-gui-1.9.1.tar.gz
-Source0  : https://github.com/drowe67/freedv-gui/archive/v1.9.1/freedv-gui-1.9.1.tar.gz
+Version  : 1.9.2
+Release  : 53
+URL      : https://github.com/drowe67/freedv-gui/archive/v1.9.2/freedv-gui-1.9.2.tar.gz
+Source0  : https://github.com/drowe67/freedv-gui/archive/v1.9.2/freedv-gui-1.9.2.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC-BY-4.0 LGPL-2.1
@@ -66,8 +66,8 @@ license components for the freedv package.
 
 
 %prep
-%setup -q -n freedv-gui-1.9.1
-cd %{_builddir}/freedv-gui-1.9.1
+%setup -q -n freedv-gui-1.9.2
+cd %{_builddir}/freedv-gui-1.9.2
 %patch -P 1 -p1
 
 %build
@@ -75,7 +75,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1692368996
+export SOURCE_DATE_EPOCH=1694703385
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -113,7 +113,7 @@ cd ../clr-build-avx2;
 make test || : || :
 
 %install
-export SOURCE_DATE_EPOCH=1692368996
+export SOURCE_DATE_EPOCH=1694703385
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
 cp %{_builddir}/freedv-gui-%{version}/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b || :
@@ -141,10 +141,7 @@ popd
 /usr/share/freedv-gui/USER_MANUAL.md
 /usr/share/freedv-gui/USER_MANUAL.pdf
 /usr/share/freedv-gui/wav/all_2020.wav
-/usr/share/freedv-gui/wav/all_2020B.wav
-/usr/share/freedv-gui/wav/all_2020B_mpp.wav
 /usr/share/freedv-gui/wav/ve9qrp_1600.wav
-/usr/share/freedv-gui/wav/ve9qrp_2400b.wav
 /usr/share/freedv-gui/wav/ve9qrp_700c.wav
 /usr/share/freedv-gui/wav/ve9qrp_700d.wav
 /usr/share/freedv-gui/wav/ve9qrp_700e.wav
