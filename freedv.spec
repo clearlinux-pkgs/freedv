@@ -7,7 +7,7 @@
 #
 Name     : freedv
 Version  : 1.9.4
-Release  : 55
+Release  : 56
 URL      : https://github.com/drowe67/freedv-gui/archive/v1.9.4/freedv-gui-1.9.4.tar.gz
 Source0  : https://github.com/drowe67/freedv-gui/archive/v1.9.4/freedv-gui-1.9.4.tar.gz
 Summary  : No detailed summary available
