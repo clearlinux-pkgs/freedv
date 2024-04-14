@@ -6,10 +6,10 @@
 # autospec commit: 5905be9
 #
 Name     : freedv
-Version  : 1.9.9
-Release  : 68
-URL      : https://github.com/drowe67/freedv-gui/archive/v1.9.9/freedv-gui-1.9.9.tar.gz
-Source0  : https://github.com/drowe67/freedv-gui/archive/v1.9.9/freedv-gui-1.9.9.tar.gz
+Version  : 1.9.9.1
+Release  : 69
+URL      : https://github.com/drowe67/freedv-gui/archive/v1.9.9.1/freedv-gui-1.9.9.1.tar.gz
+Source0  : https://github.com/drowe67/freedv-gui/archive/v1.9.9.1/freedv-gui-1.9.9.1.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC-BY-4.0 LGPL-2.1
@@ -68,8 +68,8 @@ license components for the freedv package.
 
 
 %prep
-%setup -q -n freedv-gui-1.9.9
-cd %{_builddir}/freedv-gui-1.9.9
+%setup -q -n freedv-gui-1.9.9.1
+cd %{_builddir}/freedv-gui-1.9.9.1
 %patch -P 1 -p1
 
 %build
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1713035483
+export SOURCE_DATE_EPOCH=1713129512
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -140,7 +140,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1713035483
+export SOURCE_DATE_EPOCH=1713129512
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/freedv
 cp %{_builddir}/freedv-gui-%{version}/COPYING %{buildroot}/usr/share/package-licenses/freedv/0468d1cb0e40500dc98fa86141431a9f9e088c2b || :
